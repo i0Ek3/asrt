@@ -1,0 +1,2 @@
+# asrt
+Assertation for Go.
