@@ -23,11 +23,9 @@ func main() {
 }
 ```
 
-## API
+## TODO
 
-- Asrt(t, got, want)
-- Equal(t, got, want) bool
-- NotEqual(t, got, want) bool
+- error showing
 
 
 ## License
