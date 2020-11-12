@@ -1,7 +1,6 @@
 package asrt
 
 import (
-	//"errors"
 	"reflect"
 	"testing"
 )
@@ -16,7 +15,7 @@ func deepequal(t *testing.T, got, want interface{}) bool {
 
 // Asrt outputs error message when got not equal with want
 func Asrt(t *testing.T, got, want interface{}) {
-	if !deepequal(t, got, want) {
+	if deepequal(t, got, want) {
 		t.Errorf("got %q want %v", got, want)
 	}
 }
