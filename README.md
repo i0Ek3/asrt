@@ -4,11 +4,13 @@
 
 For now, this package is very simple, but just for now.
 
-## Install
+## Getting Started
+
+### Install
 
 `go get "github.com/i0Ek3/asrt"`
 
-## Usage
+### Usage
 
 ```Go
 package main
@@ -20,6 +22,7 @@ import (
 func main() {
     //...
     asrt.Asrt(t, got, want)
+    asrt.Neg(t, prevalue, neg)
 }
 ```
 
@@ -27,6 +30,10 @@ func main() {
 
 - error showing
 
+
+## Contributing
+
+PRs and Issues are also welcome.
 
 ## License
 

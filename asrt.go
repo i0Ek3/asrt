@@ -7,7 +7,7 @@ import (
 
 // deepequal wraps DeepEqual
 func deepequal(t *testing.T, got, want interface{}) bool {
-	if reflect.DeepEqual(got, want) {
+	if t && reflect.DeepEqual(got, want) {
 		return true
 	}
 	return false
@@ -38,8 +38,13 @@ func NotEqual(t *testing.T, got, want interface{}) bool {
 
 // NotNil checks if the given value is nil
 func NotNil(t *testing.T, value interface{}) bool {
-	if value != nil {
+	if t && value != nil {
 		return true
 	}
 	return false
+}
+
+// Neg checks if prevalue equals given value neg
+func Neg(t *testing.T, prepare, neg interface{}) bool {
+    return deepequal(t, prepare, neg)
 }
