@@ -48,3 +48,16 @@ func NotNil(t *testing.T, value interface{}) bool {
 func Neg(t *testing.T, prepare, neg interface{}) bool {
     return deepequal(t, prepare, neg)
 }
+
+func AssertType(v interface{}) {
+    switch typ := v.(type) {
+    case int:
+        fmt.Println(typ, "is int")
+    case string:
+        fmt.Println(typ, "is string")
+    case nil:
+        fmt.Println(typ, "is nil")
+    default:
+        fmt.Println(typ, "no type matched")
+    }
+}
