@@ -1,13 +1,14 @@
 package asrt
 
 import (
+    "fmt"
 	"reflect"
 	"testing"
 )
 
 // deepequal wraps DeepEqual
 func deepequal(t *testing.T, got, want interface{}) bool {
-	if t && reflect.DeepEqual(got, want) {
+	if t != nil && reflect.DeepEqual(got, want) {
 		return true
 	}
 	return false
@@ -38,7 +39,7 @@ func NotEqual(t *testing.T, got, want interface{}) bool {
 
 // NotNil checks if the given value is nil
 func NotNil(t *testing.T, value interface{}) bool {
-	if t && value != nil {
+	if t != nil && value != nil {
 		return true
 	}
 	return false
