@@ -6,51 +6,57 @@ import (
 	"testing"
 )
 
+// T ready for generic 
+type (
+    T  interface{}
+)
+
 // deepequal wraps DeepEqual
-func deepequal(t *testing.T, got, want interface{}) bool {
-	if t != nil && reflect.DeepEqual(got, want) {
+func deepequal(got, want T) bool {
+	if reflect.DeepEqual(got, want) {
 		return true
 	}
 	return false
 }
 
 // Asrt outputs error message when got not equal with want
-func Asrt(t *testing.T, got, want interface{}) {
-	if deepequal(t, got, want) {
-		t.Errorf("got %q want %v", got, want)
+func Asrt(t *testing.T, got, want T) {
+	if deepequal(got, want) {
+		t.Errorf("got %v want %v", got, want)
 	}
 }
 
 // Equal checks if the give value is equal
-func Equal(t *testing.T, got, want interface{}) bool {
-	if deepequal(t, got, want) {
+func Equal(got, want T) bool {
+	if deepequal(got, want) {
 		return true
 	}
 	return false
 }
 
 // NotEqual checks if the given value is not equal
-func NotEqual(t *testing.T, got, want interface{}) bool {
-	if !deepequal(t, got, want) {
+func NotEqual(got, want T) bool {
+	if !deepequal(got, want) {
 		return false
 	}
 	return true
 }
 
 // NotNil checks if the given value is nil
-func NotNil(t *testing.T, value interface{}) bool {
-	if t != nil && value != nil {
+func NotNil(value T) bool {
+	if value != nil {
 		return true
 	}
 	return false
 }
 
 // Neg checks if prevalue equals given value neg
-func Neg(t *testing.T, prepare, neg interface{}) bool {
-    return deepequal(t, prepare, neg)
+func Neg(prepare, neg T) bool {
+    return deepequal(prepare, neg)
 }
 
-func AssertType(v interface{}) {
+// AssertType asserts the value type
+func AssertType(v T) {
     switch typ := v.(type) {
     case int:
         fmt.Println(typ, "is int")
