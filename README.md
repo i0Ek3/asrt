@@ -22,7 +22,10 @@ import (
 func main() {
     //...
     asrt.Asrt(t, got, want)
-    asrt.Neg(t, prevalue, neg)
+    asrt.Equal(got, want)
+    asrt.NotEqual(got, want)
+    asrt.NotNil(value)
+    asrt.Neg(prevalue, neg)
 }
 ```
 
