@@ -2,13 +2,13 @@
 
 > Assertation for Go.
 
-For now, this package is very simple, but just for now.
+`asrt` help you to do something you won't do, and laterly, we will support generic for `asrt`.
 
 ## Getting Started
 
 ### Install
 
-`go get "github.com/i0Ek3/asrt"`
+`go get -u "github.com/i0Ek3/asrt"`
 
 ### Usage
 
