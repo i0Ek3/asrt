@@ -1,0 +1,79 @@
+package asrt
+
+import (
+    //"fmt"
+	"reflect"
+	"testing"
+)
+
+type Enable interface {
+    type int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, uintptr, float32, float64, complex64, complex128, string
+}
+
+// deepequal wraps DeepEqual
+func deepequal[T Enable](got, want T) bool {
+	if reflect.DeepEqual(got, want) {
+		return true
+	}
+	return false
+}
+
+// Asrt outputs error message when got not equal with want
+func Asrt[T Enable](t *testing.T, got, want T) {
+	if deepequal(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+// Equal checks if the give value is equal
+func Equal[T Enable](got, want T) bool {
+	if deepequal(got, want) {
+		return true
+	}
+	return false
+}
+
+// NotEqual checks if the given value is not equal
+func NotEqual[T Enable](got, want T) bool {
+	if !deepequal(got, want) {
+		return false
+	}
+	return true
+}
+
+// NotNil checks if the given value is nil
+func NotNil[T compareable](value T) bool {
+    m := []T{0, "", nil}
+    for _, v := range m {
+        if value != v {
+		    return true
+	    }
+    }
+	return false
+}
+
+// Neg checks if prevalue equals given value neg
+func Neg[T Enable](prepare, neg T) bool {
+    return deepequal(prepare, neg)
+}
+
+/*
+ * The type in the generic type does not need to do
+ * any type assertion and reflection inside the function. 
+ * The specific type can be determined at compile time.
+ *
+
+// AssertType asserts the value type
+func AssertType[T Enable](v T) {
+    switch typ := v.(type) {
+    case int:
+        fmt.Println(typ, "is int")
+    case string:
+        fmt.Println(typ, "is string")
+    case nil:
+        fmt.Println(typ, "is nil")
+    default:
+        fmt.Println(typ, "no type matched")
+    }
+}
+*/

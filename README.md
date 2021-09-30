@@ -31,7 +31,8 @@ func main() {
 
 ## TODO
 
-- error showing
+- [x] generic support
+- [ ] error showing
 
 
 ## Contributing
