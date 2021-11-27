@@ -61,19 +61,8 @@ func Neg[T Enable](prepare, neg T) bool {
  * The type in the generic type does not need to do
  * any type assertion and reflection inside the function. 
  * The specific type can be determined at compile time.
- *
-
+ */
 // AssertType asserts the value type
-func AssertType[T Enable](v T) {
-    switch typ := v.(type) {
-    case int:
-        fmt.Println(typ, "is int")
-    case string:
-        fmt.Println(typ, "is string")
-    case nil:
-        fmt.Println(typ, "is nil")
-    default:
-        fmt.Println(typ, "no type matched")
-    }
+func AssertType[T Enable](t T) string {
+    return fmt.Sprintf("%T", t)
 }
-*/

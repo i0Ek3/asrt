@@ -56,15 +56,20 @@ func Neg(prepare, neg T) bool {
 }
 
 // AssertType asserts the value type
-func AssertType(v T) {
-    switch typ := v.(type) {
-    case int:
-        fmt.Println(typ, "is int")
-    case string:
-        fmt.Println(typ, "is string")
+func AssertType(t T) string {
+    switch t := t.(type) {
     case nil:
-        fmt.Println(typ, "is nil")
+        return "NULL"
+    case int, uint:
+        return fmt.Sprintf("%d", t)
+    case bool:
+        if x {
+            return "TRUE"
+        }
+        return "FALSE"
+    case string:
+        return fmt.Sprintf("%s", t)
     default:
-        fmt.Println(typ, "no type matched")
+        panic(fmt.Sprintf("unexpected type %T: %v", t, t))
     }
 }

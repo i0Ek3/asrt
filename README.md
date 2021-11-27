@@ -1,8 +1,6 @@
 # asrt
 
-> Assertation for Go.
-
-`asrt` help you to do something you won't do, and laterly, we will support generic for `asrt`.
+`asrt` helps you to do something you won't do, just check it all.
 
 ## Getting Started
 
