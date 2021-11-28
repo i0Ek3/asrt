@@ -63,7 +63,7 @@ func AssertType(t T) string {
     case int, uint:
         return fmt.Sprintf("%d", t)
     case bool:
-        if x {
+        if t {
             return "TRUE"
         }
         return "FALSE"
